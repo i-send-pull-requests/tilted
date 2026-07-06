@@ -107,6 +107,14 @@ public class TiltedModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.TOTEMIC_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.WILDFLOWER_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.WRITER_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.ANTIVIRUS_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.CELESTIAL_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.HEARTSTRING_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.LEGALLY_DISTINCT_BRIMSTONE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.MALWARE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.PVP_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.SOLARIS_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.WARLOCK_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
 
         writeCrossbowSkin(SkinsComponent.BLACKICE);
         writeCrossbowSkin(SkinsComponent.BLUEICE);
@@ -173,6 +181,14 @@ public class TiltedModelProvider extends FabricModelProvider {
         writeCrossbowSkin(SkinsComponent.TOTEMIC);
         writeCrossbowSkin(SkinsComponent.WILDFLOWER);
         writeCrossbowSkin(SkinsComponent.WRITER);
+        writeCrossbowSkin(SkinsComponent.ANTIVIRUS);
+        writeCrossbowSkin(SkinsComponent.CELESTIAL);
+        writeCrossbowSkin(SkinsComponent.HEARTSTRING);
+        writeCrossbowSkin(SkinsComponent.LEGALLY_DISTINCT_BRIMSTONE);
+        writeCrossbowSkin(SkinsComponent.MALWARE);
+        writeCrossbowSkin(SkinsComponent.PVP);
+        writeCrossbowSkin(SkinsComponent.SOLARIS);
+        writeCrossbowSkin(SkinsComponent.WARLOCK);
     }
 
     @Override

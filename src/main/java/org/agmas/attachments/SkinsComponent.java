@@ -65,5 +65,13 @@ public enum SkinsComponent {
     SULFUROUS,
     TOTEMIC,
     WILDFLOWER,
-    WRITER
+    WRITER,
+    ANTIVIRUS,
+    CELESTIAL,
+    HEARTSTRING,
+    LEGALLY_DISTINCT_BRIMSTONE,
+    MALWARE,
+    PVP,
+    SOLARIS,
+    WARLOCK
 }

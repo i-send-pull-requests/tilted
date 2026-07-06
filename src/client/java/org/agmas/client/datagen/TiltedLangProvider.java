@@ -51,13 +51,22 @@ public class TiltedLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.GODHOLMS_SMITHING_TEMPLATE, "Godholms Crossbow Smithing Template");
         translationBuilder.add(ModItems.NAUTICAL_SMITHING_TEMPLATE, "Nautical Crossbow Smithing Template");
         translationBuilder.add(ModItems.PALE_SMITHING_TEMPLATE, "Pale Crossbow Smithing Template");
-        translationBuilder.add(ModItems.ROAR_SMITHING_TEMPLATE, "Roar Ops Crossbow Smithing Template");
+        translationBuilder.add(ModItems.ROAR_SMITHING_TEMPLATE, "Roar Crossbow Smithing Template");
         translationBuilder.add(ModItems.SPLIT_SMITHING_TEMPLATE, "Split Crossbow Smithing Template");
         translationBuilder.add(ModItems.STOPWATCH_SMITHING_TEMPLATE, "Stopwatch Crossbow Smithing Template");
-        translationBuilder.add(ModItems.SULFUROUS_SMITHING_TEMPLATE, "Sulfurous Ops Crossbow Smithing Template");
+        translationBuilder.add(ModItems.SULFUROUS_SMITHING_TEMPLATE, "Sulfurous Crossbow Smithing Template");
         translationBuilder.add(ModItems.TOTEMIC_SMITHING_TEMPLATE, "Totemic Crossbow Smithing Template");
-        translationBuilder.add(ModItems.WILDFLOWER_SMITHING_TEMPLATE, "Wildflower Ops Crossbow Smithing Template");
+        translationBuilder.add(ModItems.WILDFLOWER_SMITHING_TEMPLATE, "Wildflower Crossbow Smithing Template");
         translationBuilder.add(ModItems.WRITER_SMITHING_TEMPLATE, "Writer Crossbow Smithing Template");
+
+        translationBuilder.add(ModItems.ANTIVIRUS_SMITHING_TEMPLATE, "Antivirus Crossbow Smithing Template");
+        translationBuilder.add(ModItems.CELESTIAL_SMITHING_TEMPLATE, "Celestial Crossbow Smithing Template");
+        translationBuilder.add(ModItems.HEARTSTRING_SMITHING_TEMPLATE, "Heartstring Crossbow Smithing Template");
+        translationBuilder.add(ModItems.LEGALLY_DISTINCT_BRIMSTONE_SMITHING_TEMPLATE, "Legally Distinct Brimstone Crossbow Smithing Template");
+        translationBuilder.add(ModItems.MALWARE_SMITHING_TEMPLATE, "Malware Crossbow Smithing Template");
+        translationBuilder.add(ModItems.PVP_SMITHING_TEMPLATE, "PvP Crossbow Smithing Template");
+        translationBuilder.add(ModItems.SOLARIS_SMITHING_TEMPLATE, "Solaris Crossbow Smithing Template");
+        translationBuilder.add(ModItems.WARLOCK_SMITHING_TEMPLATE, "Warlock Crossbow Smithing Template");
 
         translationBuilder.add(ModBlocks.CRATE, "Skin Crate");
     }

@@ -33,8 +33,10 @@ public class CrateBlock extends Block {
             ModItems.NAUTICAL_SMITHING_TEMPLATE,
             ModItems.PALE_SMITHING_TEMPLATE,
             ModItems.SULFUROUS_SMITHING_TEMPLATE,
+            ModItems.ANTIVIRUS_SMITHING_TEMPLATE,
             ModItems.TOTEMIC_SMITHING_TEMPLATE,
             ModItems.WILDFLOWER_SMITHING_TEMPLATE,
+            ModItems.LEGALLY_DISTINCT_BRIMSTONE_SMITHING_TEMPLATE,
             ModItems.FLAMBE_SMITHING_TEMPLATE
     );
     List<Item> uncommonDrops =
@@ -58,17 +60,23 @@ public class CrateBlock extends Block {
                     ModItems.FRIEND_SMITHING_TEMPLATE,
                     ModItems.STOPWATCH_SMITHING_TEMPLATE,
                     ModItems.SPLIT_SMITHING_TEMPLATE,
+                    ModItems.PVP_SMITHING_TEMPLATE,
                     ModItems.WRITER_SMITHING_TEMPLATE,
                     ModItems.FLOWER_SMITHING_TEMPLATE,
+                    ModItems.HEARTSTRING_SMITHING_TEMPLATE,
                     ModItems.SENTINAL_SMITHING_TEMPLATE);
     List<Item> rareDrops =
             List.of(ModItems.NOSTALGIA_SMITHING_TEMPLATE,
                     ModItems.ICE_SMITHING_TEMPLATE,
                     ModItems.AWAKENED_SMITHING_TEMPLATE,
+                    ModItems.CELESTIAL_SMITHING_TEMPLATE,
                     ModItems.ROAR_SMITHING_TEMPLATE,
+                    ModItems.SOLARIS_SMITHING_TEMPLATE,
+                    ModItems.WARLOCK_SMITHING_TEMPLATE,
                     ModItems.GODHOLMS_SMITHING_TEMPLATE,
                     ModItems.ANCIENT_SMITHING_TEMPLATE,
                     ModItems.SHRIMP_SMITHING_TEMPLATE,
+                    ModItems.MALWARE_SMITHING_TEMPLATE,
                     ModItems.MISSING_TEXTURE_SMITHING_TEMPLATE,
                     ModItems.GUI_SMITHING_TEMPLATE);
     @Override

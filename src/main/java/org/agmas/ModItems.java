@@ -78,6 +78,14 @@ public class ModItems {
     public static final Item TOTEMIC_SMITHING_TEMPLATE = register("totemic_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
     public static final Item WILDFLOWER_SMITHING_TEMPLATE = register("wildflower_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
     public static final Item WRITER_SMITHING_TEMPLATE = register("writer_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item ANTIVIRUS_SMITHING_TEMPLATE = register("antivirus_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item CELESTIAL_SMITHING_TEMPLATE = register("celestial_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item HEARTSTRING_SMITHING_TEMPLATE = register("heartstring_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item LEGALLY_DISTINCT_BRIMSTONE_SMITHING_TEMPLATE = register("legally_distinct_brimstone_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item MALWARE_SMITHING_TEMPLATE = register("malware_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item PVP_SMITHING_TEMPLATE = register("pvp_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item SOLARIS_SMITHING_TEMPLATE = register("solaris_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item WARLOCK_SMITHING_TEMPLATE = register("warlock_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
 
     public static void init() {
         //? if >=26.1 {
@@ -137,6 +145,14 @@ public class ModItems {
                     creativeTab.accept(ModItems.TOTEMIC_SMITHING_TEMPLATE);
                     creativeTab.accept(ModItems.WILDFLOWER_SMITHING_TEMPLATE);
                     creativeTab.accept(ModItems.WRITER_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.ANTIVIRUS_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.CELESTIAL_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.HEARTSTRING_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.LEGALLY_DISTINCT_BRIMSTONE_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.MALWARE_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.PVP_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.SOLARIS_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.WARLOCK_SMITHING_TEMPLATE);
                 });
          //? }
     }
