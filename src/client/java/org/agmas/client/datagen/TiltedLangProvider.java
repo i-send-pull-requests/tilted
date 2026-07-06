@@ -41,6 +41,24 @@ public class TiltedLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.TEMPERED_SMITHING_TEMPLATE, "Tempered Ops Crossbow Smithing Template");
         translationBuilder.add(ModItems.TRAINING_SMITHING_TEMPLATE, "Training Crossbow Smithing Template");
 
+        translationBuilder.add(ModItems.ANCIENT_SMITHING_TEMPLATE, "Ancient Crossbow Smithing Template");
+        translationBuilder.add(ModItems.ARMOURED_SMITHING_TEMPLATE, "Armoured Crossbow Smithing Template");
+        translationBuilder.add(ModItems.AWAKENED_SMITHING_TEMPLATE, "Awakened Crossbow Smithing Template");
+        translationBuilder.add(ModItems.BUSINESS_SMITHING_TEMPLATE, "Business Crossbow Smithing Template");
+        translationBuilder.add(ModItems.CHUD_SMITHING_TEMPLATE, "Chud Crossbow Smithing Template");
+        translationBuilder.add(ModItems.FLOWER_SMITHING_TEMPLATE, "Flower Crossbow Smithing Template");
+        translationBuilder.add(ModItems.FRIEND_SMITHING_TEMPLATE, "Friend Crossbow Smithing Template");
+        translationBuilder.add(ModItems.GODHOLMS_SMITHING_TEMPLATE, "Godholms Crossbow Smithing Template");
+        translationBuilder.add(ModItems.NAUTICAL_SMITHING_TEMPLATE, "Nautical Crossbow Smithing Template");
+        translationBuilder.add(ModItems.PALE_SMITHING_TEMPLATE, "Pale Crossbow Smithing Template");
+        translationBuilder.add(ModItems.ROAR_SMITHING_TEMPLATE, "Roar Ops Crossbow Smithing Template");
+        translationBuilder.add(ModItems.SPLIT_SMITHING_TEMPLATE, "Split Crossbow Smithing Template");
+        translationBuilder.add(ModItems.STOPWATCH_SMITHING_TEMPLATE, "Stopwatch Crossbow Smithing Template");
+        translationBuilder.add(ModItems.SULFUROUS_SMITHING_TEMPLATE, "Sulfurous Ops Crossbow Smithing Template");
+        translationBuilder.add(ModItems.TOTEMIC_SMITHING_TEMPLATE, "Totemic Crossbow Smithing Template");
+        translationBuilder.add(ModItems.WILDFLOWER_SMITHING_TEMPLATE, "Wildflower Ops Crossbow Smithing Template");
+        translationBuilder.add(ModItems.WRITER_SMITHING_TEMPLATE, "Writer Crossbow Smithing Template");
+
         translationBuilder.add(ModBlocks.CRATE, "Skin Crate");
     }
 }

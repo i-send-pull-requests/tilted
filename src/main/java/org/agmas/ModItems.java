@@ -61,6 +61,23 @@ public class ModItems {
     public static final Item HAMMER_SMITHING_TEMPLATE = register("hammer_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final Item KEBAB_SMITHING_TEMPLATE = register("kebab_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
 
+    public static final Item ANCIENT_SMITHING_TEMPLATE = register("ancient_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item ARMOURED_SMITHING_TEMPLATE = register("armoured_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item AWAKENED_SMITHING_TEMPLATE = register("awakened_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item BUSINESS_SMITHING_TEMPLATE = register("business_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item CHUD_SMITHING_TEMPLATE = register("chud_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item FLOWER_SMITHING_TEMPLATE = register("flower_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item FRIEND_SMITHING_TEMPLATE = register("friend_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item GODHOLMS_SMITHING_TEMPLATE = register("godholms_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item NAUTICAL_SMITHING_TEMPLATE = register("nautical_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item PALE_SMITHING_TEMPLATE = register("pale_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item ROAR_SMITHING_TEMPLATE = register("roar_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+    public static final Item SPLIT_SMITHING_TEMPLATE = register("split_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item STOPWATCH_SMITHING_TEMPLATE = register("stopwatch_smithing_template",Item::new, new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Item SULFUROUS_SMITHING_TEMPLATE = register("sulfurous_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item TOTEMIC_SMITHING_TEMPLATE = register("totemic_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item WILDFLOWER_SMITHING_TEMPLATE = register("wildflower_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item WRITER_SMITHING_TEMPLATE = register("writer_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
 
     public static void init() {
         //? if >=26.1 {
@@ -103,6 +120,23 @@ public class ModItems {
                     creativeTab.accept(ModItems.COTTONCANDY_SMITHING_TEMPLATE);
                     creativeTab.accept(ModItems.HAMMER_SMITHING_TEMPLATE);
                     creativeTab.accept(ModItems.KEBAB_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.ANCIENT_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.ARMOURED_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.AWAKENED_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.BUSINESS_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.CHUD_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.FLOWER_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.FRIEND_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.GODHOLMS_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.NAUTICAL_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.PALE_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.ROAR_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.SPLIT_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.STOPWATCH_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.SULFUROUS_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.TOTEMIC_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.WILDFLOWER_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.WRITER_SMITHING_TEMPLATE);
                 });
          //? }
     }

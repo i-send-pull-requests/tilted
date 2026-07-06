@@ -41,6 +41,19 @@ public class TiltedModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+        File dir = new File("../../src/main/resources");
+        dir.mkdir();
+        dir = new File("../../src/main/resources/assets");
+        dir.mkdir();
+        dir = new File("../../src/main/resources/assets/tilted");
+        dir.mkdir();
+        dir = new File("../../src/main/resources/assets/tilted/models");
+        dir.mkdir();
+        dir = new File("../../src/main/resources/assets/tilted/models/item");
+        dir.mkdir();
+        dir = new File("../../src/main/resources/assets/tilted/items");
+        dir.mkdir();
+
         itemModelGenerator.generateFlatItem(ModItems.CARNIVORA_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.RUNESCAPE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.CARRION_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
@@ -77,6 +90,23 @@ public class TiltedModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.COTTONCANDY_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.HAMMER_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.KEBAB_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.ANCIENT_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.ARMOURED_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.AWAKENED_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.BUSINESS_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.CHUD_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.FLOWER_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.FRIEND_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.GODHOLMS_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.NAUTICAL_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.PALE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.ROAR_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.SPLIT_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.STOPWATCH_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.SULFUROUS_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.TOTEMIC_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.WILDFLOWER_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.WRITER_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
 
         writeCrossbowSkin(SkinsComponent.BLACKICE);
         writeCrossbowSkin(SkinsComponent.BLUEICE);
@@ -126,6 +156,23 @@ public class TiltedModelProvider extends FabricModelProvider {
         writeCrossbowSkin(SkinsComponent.COTTONCANDY);
         writeCrossbowSkin(SkinsComponent.HAMMER);
         writeCrossbowSkin(SkinsComponent.KEBAB);
+        writeCrossbowSkin(SkinsComponent.ANCIENT);
+        writeCrossbowSkin(SkinsComponent.ARMOURED);
+        writeCrossbowSkin(SkinsComponent.AWAKENED);
+        writeCrossbowSkin(SkinsComponent.BUSINESS);
+        writeCrossbowSkin(SkinsComponent.CHUD);
+        writeCrossbowSkin(SkinsComponent.FLOWER);
+        writeCrossbowSkin(SkinsComponent.FRIEND);
+        writeCrossbowSkin(SkinsComponent.GODHOLMS);
+        writeCrossbowSkin(SkinsComponent.NAUTICAL);
+        writeCrossbowSkin(SkinsComponent.PALE);
+        writeCrossbowSkin(SkinsComponent.ROAR);
+        writeCrossbowSkin(SkinsComponent.SPLIT);
+        writeCrossbowSkin(SkinsComponent.STOPWATCH);
+        writeCrossbowSkin(SkinsComponent.SULFUROUS);
+        writeCrossbowSkin(SkinsComponent.TOTEMIC);
+        writeCrossbowSkin(SkinsComponent.WILDFLOWER);
+        writeCrossbowSkin(SkinsComponent.WRITER);
     }
 
     @Override

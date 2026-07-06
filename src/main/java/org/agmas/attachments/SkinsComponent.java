@@ -48,5 +48,22 @@ public enum SkinsComponent {
     MISSING_TEXTURE,
     COTTONCANDY,
     HAMMER,
-    KEBAB
+    KEBAB,
+    ANCIENT,
+    ARMOURED,
+    AWAKENED,
+    BUSINESS,
+    CHUD,
+    FLOWER,
+    FRIEND,
+    GODHOLMS,
+    NAUTICAL,
+    PALE,
+    ROAR,
+    SPLIT,
+    STOPWATCH,
+    SULFUROUS,
+    TOTEMIC,
+    WILDFLOWER,
+    WRITER
 }
