@@ -2,12 +2,16 @@ package org.agmas.client.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.mojang.blaze3d.pipeline.RenderPipeline;
+//? if <26.3 {
+/*import com.mojang.blaze3d.pipeline.RenderPipeline;
+*///? } else {
+import com.mojang.renderpearl.api.pipeline.RenderPipeline;
+//? }
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 //? if >26.1 {
-/*import net.minecraft.client.gui.Hud;*/
+import net.minecraft.client.gui.Hud;
 //? }
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.resources.Identifier;
@@ -23,12 +27,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.awt.*;
 
 //? if <=26.1 {
-@Mixin(value = Gui.class, priority = 20)
-//? } else {
-/*@Mixin(value = Hud.class, priority = 20)
-*///? }
+/*@Mixin(value = Gui.class, priority = 20)
+*///? } else {
+@Mixin(value = Hud.class, priority = 20)
+//? }
 public class GreenCrosshairMixin {
-	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0), method = "extractCrosshair")
+	//? if <26.3 {
+	/*@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0), method = "extractCrosshair")
 	private void init(GuiGraphicsExtractor instance, RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height, Operation<Void> original) {
 		if (TiltedClient.scope && TiltedClient.adsTicks > 3) {
 			return;
@@ -45,6 +50,25 @@ public class GreenCrosshairMixin {
 		}
 
 	}
+	*///? } else {
+	@WrapOperation(method = "extractCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/renderpearl/api/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0))
+	private void init(GuiGraphicsExtractor instance, RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height, Operation<Void> original) {
+		if (TiltedClient.scope && TiltedClient.adsTicks > 3) {
+			return;
+		}
+		if (TiltedClient.crossbowFocusMode) {
+			if (TiltedClient.transCrosshair) {
+				if (!TiltedClient.pressingADS)
+					instance.blitSprite(renderPipeline, location, x, y, width, height, new Color(255,0,0,25).getRGB());
+			} else {
+				instance.blitSprite(renderPipeline, location, x, y, width, height, Color.GREEN.getRGB());
+			}
+		} else {
+			original.call(instance,renderPipeline,location,x,y,width,height);
+		}
+
+	}
+	//? }
 	@Inject(at = @At("HEAD"), method = "extractCameraOverlays")
 	private void scope(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker, CallbackInfo ci) {
 		if (TiltedClient.scope && TiltedClient.adsTicks > 3) {

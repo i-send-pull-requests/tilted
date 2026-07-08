@@ -87,6 +87,9 @@ public class ModItems {
     public static final Item SOLARIS_SMITHING_TEMPLATE = register("solaris_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
     public static final Item WARLOCK_SMITHING_TEMPLATE = register("warlock_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
 
+    public static final Item DARKSUN_SMITHING_TEMPLATE = register("darksun_smithing_template",Item::new, new Item.Properties().rarity(Rarity.COMMON));
+    public static final Item INVERTED_SMITHING_TEMPLATE = register("inverted_smithing_template",Item::new, new Item.Properties().rarity(Rarity.RARE));
+
     public static void init() {
         //? if >=26.1 {
         
@@ -153,6 +156,8 @@ public class ModItems {
                     creativeTab.accept(ModItems.PVP_SMITHING_TEMPLATE);
                     creativeTab.accept(ModItems.SOLARIS_SMITHING_TEMPLATE);
                     creativeTab.accept(ModItems.WARLOCK_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.DARKSUN_SMITHING_TEMPLATE);
+                    creativeTab.accept(ModItems.INVERTED_SMITHING_TEMPLATE);
                 });
          //? }
     }

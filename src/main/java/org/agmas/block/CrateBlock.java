@@ -36,6 +36,7 @@ public class CrateBlock extends Block {
             ModItems.ANTIVIRUS_SMITHING_TEMPLATE,
             ModItems.TOTEMIC_SMITHING_TEMPLATE,
             ModItems.WILDFLOWER_SMITHING_TEMPLATE,
+            ModItems.DARKSUN_SMITHING_TEMPLATE,
             ModItems.LEGALLY_DISTINCT_BRIMSTONE_SMITHING_TEMPLATE,
             ModItems.FLAMBE_SMITHING_TEMPLATE
     );
@@ -71,6 +72,7 @@ public class CrateBlock extends Block {
                     ModItems.AWAKENED_SMITHING_TEMPLATE,
                     ModItems.CELESTIAL_SMITHING_TEMPLATE,
                     ModItems.ROAR_SMITHING_TEMPLATE,
+                    ModItems.INVERTED_SMITHING_TEMPLATE,
                     ModItems.SOLARIS_SMITHING_TEMPLATE,
                     ModItems.WARLOCK_SMITHING_TEMPLATE,
                     ModItems.GODHOLMS_SMITHING_TEMPLATE,

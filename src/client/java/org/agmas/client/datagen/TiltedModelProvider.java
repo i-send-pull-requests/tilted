@@ -115,6 +115,8 @@ public class TiltedModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ModItems.PVP_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.SOLARIS_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ModItems.WARLOCK_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.INVERTED_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ModItems.DARKSUN_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
 
         writeCrossbowSkin(SkinsComponent.BLACKICE);
         writeCrossbowSkin(SkinsComponent.BLUEICE);
@@ -189,6 +191,8 @@ public class TiltedModelProvider extends FabricModelProvider {
         writeCrossbowSkin(SkinsComponent.PVP);
         writeCrossbowSkin(SkinsComponent.SOLARIS);
         writeCrossbowSkin(SkinsComponent.WARLOCK);
+        writeCrossbowSkin(SkinsComponent.DARKSUN);
+        writeCrossbowSkin(SkinsComponent.INVERTED);
     }
 
     @Override

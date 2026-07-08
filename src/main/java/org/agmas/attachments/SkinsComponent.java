@@ -73,5 +73,7 @@ public enum SkinsComponent {
     MALWARE,
     PVP,
     SOLARIS,
-    WARLOCK
+    WARLOCK,
+    DARKSUN,
+    INVERTED
 }

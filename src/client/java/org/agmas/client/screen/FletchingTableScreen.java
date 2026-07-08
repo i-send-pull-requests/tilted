@@ -1,6 +1,5 @@
 package org.agmas.client.screen;
 
-import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -69,7 +68,11 @@ public class FletchingTableScreen extends AbstractContainerScreen<FletchingTable
                                 Component.literal(""),
                                 Component.literal("Spread Multiplier: " + value.uncertaintyMultiplier + "x").withColor(Color.GRAY.getRGB()))
                         );
-                        graphics.tooltip(Minecraft.getInstance().font, List.of(attachmentTooltipComponent),mouseX,mouseY, DefaultTooltipPositioner.INSTANCE,null);
+                        //? if <26.3 {
+                        /*graphics.tooltip(Minecraft.getInstance().font, List.of(attachmentTooltipComponent),mouseX,mouseY, DefaultTooltipPositioner.INSTANCE,null);
+                        *///? } else {
+                        graphics.tooltip(Minecraft.getInstance().font, List.of(attachmentTooltipComponent),mouseX,mouseY, DefaultTooltipPositioner.INSTANCE,null,false);
+                        //? }
                     };
                 }
                 i += ATTACHMENT_WIDTH;
@@ -92,7 +95,11 @@ public class FletchingTableScreen extends AbstractContainerScreen<FletchingTable
                                 Component.literal("Zoom: " + zoomRounded + "x").withColor(Color.GRAY.getRGB()),
                                 Component.literal("Time to ADS: " + (value.ticksToADS/20f) + "s").withColor(Color.GRAY.getRGB())
                         ));
-                        graphics.tooltip(Minecraft.getInstance().font, List.of(attachmentTooltipComponent),mouseX,mouseY, DefaultTooltipPositioner.INSTANCE,null);
+                        //? if <26.3 {
+                        /*graphics.tooltip(Minecraft.getInstance().font, List.of(attachmentTooltipComponent),mouseX,mouseY, DefaultTooltipPositioner.INSTANCE,null);
+                        *///? } else {
+                        graphics.tooltip(Minecraft.getInstance().font, List.of(attachmentTooltipComponent),mouseX,mouseY, DefaultTooltipPositioner.INSTANCE,null,false);
+                        //? }
                     };
                 }
                 i += ATTACHMENT_WIDTH;

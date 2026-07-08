@@ -25,6 +25,7 @@
   "key.category.tilted.tilted": "Tilted",
   "key.tilted.leanLeft": "Lean Left",
   "key.tilted.leanRight": "Lean Right",
+  "key.tilted.crossbowFocusMode": "Crossbow Focus Mode",
 
   "item.tilted.ancient_smithing_template": "Ancient Crossbow Smithing Template",
   "item.tilted.antivirus_smithing_template": "Antivirus Crossbow Smithing Template",
@@ -68,7 +69,7 @@
   "item.tilted.split_smithing_template": "Split Crossbow Smithing Template",
   "item.tilted.stopwatch_smithing_template": "Stopwatch Crossbow Smithing Template",
   "item.tilted.sulfurous_smithing_template": "Sulfurous Crossbow Smithing Template",
-  "item.tilted.tempered_smithing_template": "Tempered Ops Crossbow Smithing Template",
+  "item.tilted.tempered_smithing_template": "Tempered Crossbow Smithing Template",
   "item.tilted.totemic_smithing_template": "Totemic Crossbow Smithing Template",
   "item.tilted.training_smithing_template": "Training Crossbow Smithing Template",
   "item.tilted.virtue_smithing_template": "Virtue Crossbow Smithing Template",
@@ -85,7 +86,8 @@
   "item.tilted.wrath_smithing_template": "Wrath Crossbow Smithing Template",
   "item.tilted.missing_texture_smithing_template": "Missing Texture Crossbow Smithing Template",
   "item.tilted.cottoncandy_smithing_template": "Cotton Candy Crossbow Smithing Template",
-  "item.tilted.hammer_smithing_template": "Hammer Texture Crossbow Smithing Template",
-  "item.tilted.kebab_smithing_template": "Kebab Crossbow Smithing Template"
-
+  "item.tilted.hammer_smithing_template": "Hammer Crossbow Smithing Template",
+  "item.tilted.kebab_smithing_template": "Kebab Crossbow Smithing Template",
+  "item.tilted.darksun_smithing_template": "Dark Sun Crossbow Smithing Template",
+  "item.tilted.inverted_smithing_template": "Inverted Crossbow Smithing Template"
 }

@@ -2,7 +2,9 @@ package org.agmas;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+//? if <26.3 {
+/*import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+*///? }
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.loader.impl.util.log.Log;
@@ -49,10 +51,12 @@ public class Tilted implements ModInitializer {
 			context.player().setAttached(ModAttachments.IS_AIMING, payload.isAdsing());
 		}));
 
-		LootTableEvents.MODIFY_DROPS.register(((key, tableBuilder, source) -> {
+		//? if <26.3 {
+		/*LootTableEvents.MODIFY_DROPS.register(((key, tableBuilder, source) -> {
 			if (new Random().nextInt(0,500) <= 1) {
 				source.add(ModBlocks.CRATE.asItem().getDefaultInstance());
 			}
 		}));
+		*///? }
 	}
 }
