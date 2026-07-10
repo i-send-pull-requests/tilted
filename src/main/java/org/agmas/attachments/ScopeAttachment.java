@@ -1,6 +1,5 @@
 package org.agmas.attachments;
 
-import org.jspecify.annotations.Nullable;
 
 public enum ScopeAttachment {
     IRON_SIGHTS(0.9f,3,false,false),

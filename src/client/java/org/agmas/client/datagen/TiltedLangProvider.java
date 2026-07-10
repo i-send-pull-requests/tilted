@@ -1,3 +1,17 @@
+/*
+
+
+
+
+
+Unused
+
+
+
+
+
+
+
 package org.agmas.client.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -70,4 +84,4 @@ public class TiltedLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(ModBlocks.CRATE, "Skin Crate");
     }
-}
+}*/

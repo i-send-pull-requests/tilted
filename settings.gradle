@@ -4,8 +4,13 @@ pluginManagement {
 			name = 'Fabric'
 			url = 'https://maven.fabricmc.net/'
 		}
+		mavenLocal()
 		mavenCentral()
 		gradlePluginPortal()
+		maven {
+			url = "https://maven.kikugie.dev/releases"
+			name = "KikuGie Releases"
+		}
 		maven {
 			url = "https://maven.kikugie.dev/snapshots"
 			name = "KikuGie Snapshots"
@@ -15,13 +20,15 @@ pluginManagement {
 
 plugins {
 	id("dev.kikugie.stonecutter").version "0.9.6"
+
+	id("dev.kikugie.loom-back-compat") version "0.3"
 }
 
 stonecutter {
 	centralScript = "build.gradle"
 	create(rootProject) {
 
-		versions("26.1", "26.2", "26.3")
+		versions("1.21.8","1.21.9","1.21.10", "1.21.11","26.1", "26.2", "26.3")
 		vcsVersion = "26.1"
 	}
 }

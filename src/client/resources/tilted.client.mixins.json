@@ -18,6 +18,7 @@
     "AvatarMixin",
     "ChangeCrossbowSkinMixin",
     "InputsMixin",
+    "OldCameraMixin",
     "SwapDownInputsMixin"
   ]
 }

@@ -3,13 +3,15 @@ package org.agmas.client;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+//? if >=26.1 {
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+ //? } else {
+/*import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+*///? }
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
@@ -49,25 +51,37 @@ public class TiltedClient implements ClientModInitializer {
 		MenuScreens.register(ModMenuTypes.FLETCHING_TABLE, FletchingTableScreen::new);
 	}
 
+	public static KeyMapping registerKeyMapping(KeyMapping keyMapping) {
+		//? if >=26.1 {
+		return KeyMappingHelper.registerKeyMapping(keyMapping);
+		//? } else {
+		/*return KeyBindingHelper.registerKeyBinding(keyMapping);
+		*///? }
+	}
+
 	public static void bootstrapKeys() {
+		//? if >=1.21.9 {
 		KeyMapping.Category CATEGORY = KeyMapping.Category.register(
 				Tilted.of("tilted")
 		);
-		enableCrossbowFocusMode = KeyMappingHelper.registerKeyMapping(
+		//? } else {
+		/*String CATEGORY = KeyMapping.CATEGORY_MOVEMENT;
+		*///? }
+		enableCrossbowFocusMode = registerKeyMapping(
 				new KeyMapping(
 						"key.tilted.crossbowFocusMode", // The translation key for the key mapping.
 						InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
 						GLFW.GLFW_KEY_J, // The GLFW keycode of the key.
 						CATEGORY // The category of the mapping.
 				));
-		leanLeft = KeyMappingHelper.registerKeyMapping(
+		leanLeft = registerKeyMapping(
 				new KeyMapping(
 						"key.tilted.leanLeft", // The translation key for the key mapping.
 						InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
 						GLFW.GLFW_KEY_E, // The GLFW keycode of the key.
 						CATEGORY // The category of the mapping.
 				));
-		leanRight = KeyMappingHelper.registerKeyMapping(
+		leanRight = registerKeyMapping(
 				new KeyMapping(
 						"key.tilted.leanRight", // The translation key for the key mapping.
 						InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.

@@ -2,7 +2,6 @@ package org.agmas.client;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import org.agmas.client.datagen.TiltedLangProvider;
 import org.agmas.client.datagen.TiltedModelProvider;
 
 public class TiltedDataGenerator implements DataGeneratorEntrypoint {

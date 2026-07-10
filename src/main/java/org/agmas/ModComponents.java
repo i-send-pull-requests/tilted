@@ -5,7 +5,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.resources.Identifier;
 import org.agmas.attachments.BarrelAttachment;
 import org.agmas.attachments.ScopeAttachment;
 import org.agmas.attachments.SkinsComponent;

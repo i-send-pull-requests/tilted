@@ -1,38 +1,32 @@
 package org.agmas.client.datagen;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
+//? if >=26.1 {
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+//? } else {
+/*import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+*///? }
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.renderer.item.ItemModel;
-import net.minecraft.client.renderer.item.RangeSelectItemModel;
-import net.minecraft.client.renderer.item.SelectItemModel;
-import net.minecraft.client.renderer.item.properties.numeric.CrossbowPull;
-import net.minecraft.client.renderer.item.properties.select.Charge;
-import net.minecraft.client.resources.model.cuboid.ItemModelGenerator;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.CrossbowItem;
 import org.agmas.ModBlocks;
 import org.agmas.ModItems;
-import org.agmas.Tilted;
 import org.agmas.attachments.SkinsComponent;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.OpenOption;
-import java.nio.file.Path;
-import java.util.Locale;
 
 public class TiltedModelProvider extends FabricModelProvider {
+    //? if >=26.1 {
     public TiltedModelProvider(FabricPackOutput output) {
         super(output);
     }
+    //? } else {
+    /*public TiltedModelProvider(FabricDataOutput output) {
+        super(output);
+    }
+    *///? }
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {

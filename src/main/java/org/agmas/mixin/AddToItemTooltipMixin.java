@@ -6,7 +6,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
+//? if >=1.21.6 {
 import net.minecraft.world.item.component.TooltipDisplay;
+//? }
 import org.agmas.ModAttachments;
 import org.agmas.ModComponents;
 import org.joml.Quaternionf;
@@ -17,11 +19,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.awt.*;
+import java.util.List;
 import java.util.function.Consumer;
 
 @Mixin(Item.class)
 public abstract class AddToItemTooltipMixin {
 
+    //? if >=1.21.6 {
     @Inject(method = "appendHoverText", at = @At("HEAD"))
     public void addText(ItemStack itemStack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag, CallbackInfo ci) {
         if (itemStack.is(Items.CROSSBOW)) {
@@ -37,5 +41,22 @@ public abstract class AddToItemTooltipMixin {
             }
         }
     }
+    //? } else {
+    /*@Inject(method = "appendHoverText", at = @At("HEAD"))
+    public void addText(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag, CallbackInfo ci) {
+        if (itemStack.is(Items.CROSSBOW)) {
+            if (itemStack.has(ModComponents.BARREL_COMPONENT)) {
+                list.add(Component.translatable("tilted.barrels." + ModComponents.barrel(itemStack.get(ModComponents.BARREL_COMPONENT)).name().toLowerCase()).withColor(Color.GRAY.getRGB()));
+            } else {
+                list.add(Component.translatable("tilted.barrels.none").withColor(Color.GRAY.getRGB()));
+            }
+            if (itemStack.has(ModComponents.SCOPE_COMPONENT)) {
+                list.add(Component.translatable("tilted.scopes." + ModComponents.scope(itemStack.get(ModComponents.SCOPE_COMPONENT)).name().toLowerCase()).withColor(Color.GRAY.getRGB()));
+            } else {
+                list.add(Component.translatable("tilted.scopes.iron_sights").withColor(Color.GRAY.getRGB()));
+            }
+        }
+    }
+    *///? }
 
 }

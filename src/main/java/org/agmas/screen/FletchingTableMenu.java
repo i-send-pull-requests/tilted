@@ -15,7 +15,6 @@ import org.agmas.ModComponents;
 import org.agmas.ModMenuTypes;
 import org.agmas.attachments.BarrelAttachment;
 import org.agmas.attachments.ScopeAttachment;
-import org.jspecify.annotations.NonNull;
 
 import java.util.Objects;
 
@@ -83,7 +82,7 @@ public class FletchingTableMenu extends AbstractContainerMenu {
 
 
     @Override
-    public @NonNull ItemStack quickMoveStack(@NonNull Player player, int slotIndex) {ItemStack clicked = ItemStack.EMPTY;
+    public ItemStack quickMoveStack(Player player, int slotIndex) {ItemStack clicked = ItemStack.EMPTY;
         Slot slot = (Slot)this.slots.get(slotIndex);
         if (slot.hasItem()) {
             ItemStack stack = slot.getItem();
@@ -139,7 +138,7 @@ public class FletchingTableMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public boolean stillValid(@NonNull Player player) {
+    public boolean stillValid(Player player) {
         return true;
     }
 }
