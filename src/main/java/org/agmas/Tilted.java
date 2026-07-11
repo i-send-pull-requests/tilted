@@ -15,6 +15,8 @@ import net.minecraft.resources.Identifier;
 //? } else {
 /*import net.minecraft.resources.ResourceLocation;
 *///? }
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -24,6 +26,7 @@ import org.agmas.network.ServerboundLeanPacket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -48,8 +51,21 @@ public class Tilted implements ModInitializer {
 	}
 	*///? }
 
+	public static List<ResourceKey<LootTable>> TRIAL_CHAMBER_TABLES = new ArrayList<>();
+
 	@Override
 	public void onInitialize() {
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_ENTRANCE);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_CORRIDOR);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_CORRIDOR_DISPENSER);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_CORRIDOR_POT);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_REWARD);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_REWARD_COMMON);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_REWARD_RARE);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_RARE);
+		TRIAL_CHAMBER_TABLES.add(BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_COMMON);
+
 		ModAttachments.init();
 		ModComponents.init();
 		ModMenuTypes.init();
@@ -76,13 +92,12 @@ public class Tilted implements ModInitializer {
 
 		//? if <26.3 {
 		LootTableEvents.MODIFY_DROPS.register(((key, tableBuilder, source) -> {
-			if (!tableBuilder.hasParameter(LootContextParams.BLOCK_STATE) && !tableBuilder.hasParameter(LootContextParams.DAMAGE_SOURCE)) {
-				if (new Random().nextInt(0, 6) <= 1) {
-					source.add(ModBlocks.CRATE.asItem().getDefaultInstance());
+			if (key.unwrapKey().isPresent()) {
+				if (TRIAL_CHAMBER_TABLES.contains(key.unwrapKey().get())) {
+					if (new Random().nextInt(0, 5) <= 1) {
+						source.add(ModBlocks.CRATE.asItem().getDefaultInstance());
+					}
 				}
-			}
-			if (new Random().nextInt(0, 1500) <= 1) {
-				source.add(ModBlocks.CRATE.asItem().getDefaultInstance());
 			}
 		}));
 		//? }

@@ -40,13 +40,7 @@ public abstract class TemporaryLootTableMixin {
     //? if >=26.3 {
     /*@Inject(method = "getRandomItemsRaw(Lnet/minecraft/world/level/storage/loot/LootContext;Ljava/util/function/Consumer;)V", at = @At("HEAD"))
     public void addText(LootContext tableBuilder, Consumer<ItemStack> source, CallbackInfo ci) {
-
-        if (!tableBuilder.hasParameter(LootContextParams.BLOCK_STATE) && !tableBuilder.hasParameter(LootContextParams.DAMAGE_SOURCE)) {
-            if (new Random().nextInt(0, 6) <= 1) {
-                source.add(ModBlocks.CRATE.asItem().getDefaultInstance());
-            }
-        }
-        if (new Random().nextInt(0, 1500) <= 1) {
+        if (new Random().nextInt(0, 500) <= 1) {
             source.accept(ModBlocks.CRATE.asItem().getDefaultInstance());
         }
     }
