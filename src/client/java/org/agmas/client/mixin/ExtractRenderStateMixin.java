@@ -31,7 +31,7 @@ public abstract class ExtractRenderStateMixin {
 
 	//? if >=1.21.11 {
 	@Inject(method = "extractRenderState(Lnet/minecraft/world/entity/Avatar;Lnet/minecraft/client/renderer/entity/state/AvatarRenderState;F)V", at = @At("TAIL"))
-	public void a(Avatar entity, AvatarRenderState state, float partialTicks, CallbackInfo ci) {
+	public void tiltedAnimations(Avatar entity, AvatarRenderState state, float partialTicks, CallbackInfo ci) {
 	//? } else {
 	/*@Inject(method = "extractHumanoidRenderState", at = @At("TAIL"))
 	private static void a(LivingEntity entity, HumanoidRenderState state, float f, ItemModelResolver itemModelResolver, CallbackInfo ci) {

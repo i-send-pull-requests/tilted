@@ -4,10 +4,10 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 //? if >=26.1 {
-import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
- //? } else {
-/*import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-*///? }
+/*import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+ *///? } else {
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+//? }
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
 import net.minecraft.client.KeyMapping;
@@ -53,10 +53,10 @@ public class TiltedClient implements ClientModInitializer {
 
 	public static KeyMapping registerKeyMapping(KeyMapping keyMapping) {
 		//? if >=26.1 {
-		return KeyMappingHelper.registerKeyMapping(keyMapping);
-		//? } else {
-		/*return KeyBindingHelper.registerKeyBinding(keyMapping);
-		*///? }
+		/*return KeyMappingHelper.registerKeyMapping(keyMapping);
+		*///? } else {
+		return KeyBindingHelper.registerKeyBinding(keyMapping);
+		//? }
 	}
 
 	public static void bootstrapKeys() {

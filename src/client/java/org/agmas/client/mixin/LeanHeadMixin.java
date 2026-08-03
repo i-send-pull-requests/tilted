@@ -43,17 +43,20 @@ public abstract class LeanHeadMixin {
 	public void leanHead(HumanoidRenderState state, CallbackInfo ci) {
 		if (state instanceof HumanoidRenderState) {
 		*///? }
-			int lean = state.getData(TiltedClient.leaningStateDataKey).intValue();
-			if (lean != 0) {
-				float delta = Mth.clamp((state.ageInTicks - state.getData(TiltedClient.leaningAgeStateDataKey).floatValue())/2.0f, 0f, 1f);
+			var lean = state.getData(TiltedClient.leaningStateDataKey);
+			if (lean != null) {
+				lean = lean.intValue();
+				if (lean != 0) {
+					float delta = Mth.clamp((state.ageInTicks - state.getData(TiltedClient.leaningAgeStateDataKey).floatValue()) / 2.0f, 0f, 1f);
 
-				//? if >= 1.21.11 {
-				float progress = EasingType.OUT_SINE.apply(delta);
-				//? } else {
-				/*float progress = Mth.easeInOutSine(delta);
-				*///? }
-				head.x += Mth.lerp(progress,0,lean*2.5f);
-				head.zRot += Mth.lerp(progress,0,lean*0.25f);
+					//? if >= 1.21.11 {
+					float progress = EasingType.OUT_SINE.apply(delta);
+					//? } else {
+					/*float progress = Mth.easeInOutSine(delta);
+					 *///? }
+					head.x += Mth.lerp(progress, 0, lean * 2.5f);
+					head.zRot += Mth.lerp(progress, 0, lean * 0.25f);
+				}
 			}
 		}
 	}
