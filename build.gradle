@@ -6,6 +6,9 @@ plugins {
 version = project.mod_version
 group = project.maven_group
 
+base {
+	archivesName.set("tilted+" + (property("minecraft_version") as String))
+}
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -61,8 +64,12 @@ processResources {
 	def version = project.version
 	inputs.property "version", version
 
+	def minecraft = stonecutter.current.version
+	def injection = "$minecraft" as String
+
 	filesMatching("fabric.mod.json") {
-		expand "version": version
+		expand "version": version,
+				"minecraft_version": injection
 	}
 }
 

@@ -71,6 +71,7 @@ public class Tilted implements ModInitializer {
 		ModMenuTypes.init();
 		ModItems.init();
 		ModBlocks.init();
+		ModTags.init();
 
 		LOGGER.info("I HATE https://modrinth.com/user/Elysieon!!! IF YOU SEE THIS MESSAGE MAKE SURE TO SEND MALICE AND DESPAIR TO https://www.youtube.com/@Elysieon!!! And you too powercyphe");
 

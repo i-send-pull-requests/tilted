@@ -3,6 +3,9 @@ package org.agmas.screen;
 import net.fabricmc.loader.impl.util.log.Log;
 import net.fabricmc.loader.impl.util.log.LogCategory;
 import net.minecraft.core.component.DataComponentType;
+//? if >=26.3 {
+/*import net.minecraft.util.Prediction;
+*///? }
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.agmas.ModComponents;
 import org.agmas.ModMenuTypes;
+import org.agmas.ModTags;
 import org.agmas.attachments.BarrelAttachment;
 import org.agmas.attachments.ScopeAttachment;
 
@@ -76,7 +80,7 @@ public class FletchingTableMenu extends AbstractContainerMenu {
     @Override
     public void slotsChanged(Container container) {
         ItemStack input = this.inputSlot.getItem();
-        crossbowInSlot = input.is(Items.CROSSBOW);
+        crossbowInSlot = input.is(ModTags.CROSSBOWS);
         super.slotsChanged(container);
     }
 
@@ -99,7 +103,7 @@ public class FletchingTableMenu extends AbstractContainerMenu {
                 if (!this.moveItemStackTo(stack, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (stack.is(Items.CROSSBOW)) {
+            } else if (stack.is(ModTags.CROSSBOWS)) {
                 if (!this.moveItemStackTo(stack, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }
@@ -122,7 +126,11 @@ public class FletchingTableMenu extends AbstractContainerMenu {
 
             slot.onTake(player, stack);
             if (slotIndex == 1) {
+                //? if >=26.3 {
+                /*player.drop(stack, false, Prediction.PREDICTED);
+                *///? } else {
                 player.drop(stack, false);
+                //? }
             }
 
             this.broadcastChanges();

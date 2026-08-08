@@ -18,11 +18,14 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
 import org.agmas.ModComponents;
 import org.agmas.ModMenuTypes;
+import org.agmas.ModTags;
 import org.agmas.Tilted;
 import org.agmas.client.screen.FletchingTableScreen;
 import org.agmas.network.ServerboundADSPacket;
 import org.agmas.network.ServerboundLeanPacket;
+//? if <26.3 {
 import org.lwjgl.glfw.GLFW;
+//? }
 
 public class TiltedClient implements ClientModInitializer {
 	public static boolean crossbowFocusMode = false;
@@ -70,22 +73,37 @@ public class TiltedClient implements ClientModInitializer {
 		enableCrossbowFocusMode = registerKeyMapping(
 				new KeyMapping(
 						"key.tilted.crossbowFocusMode", // The translation key for the key mapping.
-						InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
-						GLFW.GLFW_KEY_J, // The GLFW keycode of the key.
+						//? if <26.3 {
+						InputConstants.Type.KEYSYM,
+						GLFW.GLFW_KEY_J,
+						//? } else {
+						/*InputConstants.Type.KEYBOARD,
+						InputConstants.KEY_J,
+						*///? }
 						CATEGORY // The category of the mapping.
 				));
 		leanLeft = registerKeyMapping(
 				new KeyMapping(
 						"key.tilted.leanLeft", // The translation key for the key mapping.
-						InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
-						GLFW.GLFW_KEY_E, // The GLFW keycode of the key.
+						//? if <26.3 {
+						InputConstants.Type.KEYSYM,
+						GLFW.GLFW_KEY_E,
+						//? } else {
+						/*InputConstants.Type.KEYBOARD,
+						InputConstants.KEY_E,
+						*///? }
 						CATEGORY // The category of the mapping.
 				));
 		leanRight = registerKeyMapping(
 				new KeyMapping(
 						"key.tilted.leanRight", // The translation key for the key mapping.
-						InputConstants.Type.KEYSYM, // // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
-						GLFW.GLFW_KEY_Q, // The GLFW keycode of the key.
+						//? if <26.3 {
+						InputConstants.Type.KEYSYM,
+						GLFW.GLFW_KEY_Q,
+						//? } else {
+						/*InputConstants.Type.KEYBOARD,
+						InputConstants.KEY_Q,
+						*///? }
 						CATEGORY // The category of the mapping.
 				));
 	}
@@ -121,7 +139,7 @@ public class TiltedClient implements ClientModInitializer {
 	}
 
 	public static void changeADStime(Player player, EquipmentSlot hand) {
-		if (player.getItemBySlot(hand).is(Items.CROSSBOW)) {
+		if (player.isHolding((i)->i.is(ModTags.CROSSBOWS))) {
 			if (!player.getItemBySlot(hand).has(ModComponents.SCOPE_COMPONENT)) {
 				timeToADS = 5;
 				adsZoom = 0.9f;

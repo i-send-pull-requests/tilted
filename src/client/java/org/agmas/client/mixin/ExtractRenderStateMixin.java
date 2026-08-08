@@ -30,7 +30,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ExtractRenderStateMixin {
 
 	//? if >=1.21.11 {
-	@Inject(method = "extractRenderState(Lnet/minecraft/world/entity/Avatar;Lnet/minecraft/client/renderer/entity/state/AvatarRenderState;F)V", at = @At("TAIL"))
+	@Inject(method = "extractRenderState(Lnet/minecraft/world/entity/Avatar;Lnet/minecraft/client/renderer/entity/state/AvatarRenderState;F)V", at = @At("HEAD"))
 	public void tiltedAnimations(Avatar entity, AvatarRenderState state, float partialTicks, CallbackInfo ci) {
 	//? } else {
 	/*@Inject(method = "extractHumanoidRenderState", at = @At("TAIL"))

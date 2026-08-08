@@ -18,6 +18,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.agmas.ModAttachments;
 import org.agmas.ModComponents;
+import org.agmas.ModTags;
 import org.agmas.attachments.BarrelAttachment;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
@@ -38,10 +39,10 @@ public abstract class LeaningArrowsMixin extends Item {
     @WrapOperation(method = "shootProjectile", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V"))
     public void silencedCrossbow(Level instance, Entity except, double x, double y, double z, SoundEvent sound, SoundSource source, float volume, float pitch, Operation<Void> original, @Local(ordinal = 0, argsOnly = true) LivingEntity shooter) {
         ItemStack stack = null;
-        if (shooter.getOffhandItem().is(Items.CROSSBOW)) {
+        if (shooter.getOffhandItem().is(ModTags.CROSSBOWS)) {
             stack = shooter.getOffhandItem();
         }
-        if (shooter.getMainHandItem().is(Items.CROSSBOW)) {
+        if (shooter.getMainHandItem().is(ModTags.CROSSBOWS)) {
             stack = shooter.getMainHandItem();
         }
         if (stack != null) {
@@ -60,10 +61,10 @@ public abstract class LeaningArrowsMixin extends Item {
         float uncertaintyMulti =1;
         float powerMulti = 1;
         ItemStack stack = null;
-        if (source.getOffhandItem().is(Items.CROSSBOW)) {
+        if (source.getOffhandItem().is(ModTags.CROSSBOWS)) {
             stack = source.getOffhandItem();
         }
-        if (source.getMainHandItem().is(Items.CROSSBOW)) {
+        if (source.getMainHandItem().is(ModTags.CROSSBOWS)) {
             stack = source.getMainHandItem();
         }
         if (stack == null) {

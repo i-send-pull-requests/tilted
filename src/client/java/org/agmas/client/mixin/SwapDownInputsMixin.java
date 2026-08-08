@@ -12,6 +12,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.properties.Tilt;
+import org.agmas.ModTags;
 import org.agmas.client.TiltedClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -62,7 +63,7 @@ public abstract class SwapDownInputsMixin {
 		if (TiltedClient.crossbowFocusMode) {
 			if (!TiltedClient.itsNotJoeverUntilItsJoever) {
 				if (Minecraft.getInstance().player != null) {
-					if (Minecraft.getInstance().player.isHolding(Items.CROSSBOW)) {
+					if (Minecraft.getInstance().player.isHolding((i)->i.is(ModTags.CROSSBOWS))) {
 						if (((KeyMapping) (Object) this) != TiltedClient.leanLeft && ((KeyMapping) (Object) this) != TiltedClient.leanRight) {
 							if (TiltedClient.leanRight.same(((KeyMapping) (Object) this)) || TiltedClient.leanLeft.same(((KeyMapping) (Object) this))) {
 								clickCount = 0;
@@ -80,7 +81,7 @@ public abstract class SwapDownInputsMixin {
 		}
 		if (TiltedClient.crossbowFocusMode) {
 			if (Minecraft.getInstance().player == null) return orig;
-			if (Minecraft.getInstance().player.isHolding(Items.CROSSBOW)) {
+			if (Minecraft.getInstance().player.isHolding((i)->i.is(ModTags.CROSSBOWS))) {
 				TiltedClient.itsNotJoeverUntilItsJoever = true;
 				if (((KeyMapping)(Object)this).equals(Minecraft.getInstance().options.keyUse)) return Minecraft.getInstance().options.keyAttack.consumeClick();
 				if (((KeyMapping)(Object)this).equals(Minecraft.getInstance().options.keyAttack)) return Minecraft.getInstance().options.keyUse.consumeClick();
@@ -98,7 +99,7 @@ public abstract class SwapDownInputsMixin {
 		}
 		if (TiltedClient.crossbowFocusMode) {
 			if (Minecraft.getInstance().player == null) return orig;
-			if (Minecraft.getInstance().player.isHolding(Items.CROSSBOW)) {
+			if (Minecraft.getInstance().player.isHolding((i)->i.is(ModTags.CROSSBOWS))) {
 				TiltedClient.itsNotJoeverUntilItsJoever = true;
 				if (((KeyMapping)(Object)this).equals(Minecraft.getInstance().options.keyUse)) return Minecraft.getInstance().options.keyAttack.isDown();
 				if (((KeyMapping)(Object)this).equals(Minecraft.getInstance().options.keyAttack)) return Minecraft.getInstance().options.keyUse.isDown();
