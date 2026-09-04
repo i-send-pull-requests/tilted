@@ -5,8 +5,8 @@ import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.minecraft.client.Camera;
 //? if >=1.21.11 {
-import net.minecraft.util.EasingType;
-//? }
+/*import net.minecraft.util.EasingType;
+*///? }
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
@@ -57,10 +57,10 @@ public abstract class CameraMixin {
 	 *///? } else {
 	@WrapMethod(method = "setup")
 	//? if >=1.21.11 {
-	private void init(Level level, Entity entity, boolean bl, boolean bl2, float f, Operation<Void> original) {
-	//? } else {
-	/*private void init(BlockGetter level, Entity entity, boolean bl, boolean bl2, float f, Operation<Void> original) {
-		*///? }
+	/*private void init(Level level, Entity entity, boolean bl, boolean bl2, float f, Operation<Void> original) {
+	*///? } else {
+	private void init(BlockGetter level, Entity entity, boolean bl, boolean bl2, float f, Operation<Void> original) {
+		//? }
 		original.call(level,entity,bl,bl2,f);
 		Vec3 pos = Leaning.lean(((Camera) (Object)this),f);
 		TiltedClient.previousLeanCamPos = pos;

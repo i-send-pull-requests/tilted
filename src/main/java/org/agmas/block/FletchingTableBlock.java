@@ -14,19 +14,27 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.agmas.Tilted;
 import org.agmas.screen.FletchingTableMenu;
 //? if >=1.21.11 {
-import org.jspecify.annotations.Nullable;
-//? } else {
-/*import org.jetbrains.annotations.Nullable;
-*///? }
+/*import org.jspecify.annotations.Nullable;
+*///? } else {
+import org.jetbrains.annotations.Nullable;
+//? }
 
-public class FletchingTableBlock extends Block {
+//? if =1.21.1 {
+public class FletchingTableBlock extends net.minecraft.world.level.block.FletchingTableBlock {
+    //? } else {
+/*public class FletchingTableBlock extends Block {
+    *///? }
     public FletchingTableBlock(Properties properties) {
         super(properties);
+        Tilted.LOGGER.info("did you think you were awake in the first place?");
     }
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        Tilted.LOGGER.info("children were born out of greed and to suffer immensely. let's see if we are on the otherside or not: " + !level.isClientSide());
+
         if (!level.isClientSide()) {
             player.openMenu(state.getMenuProvider(level, pos));
         }

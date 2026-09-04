@@ -26,12 +26,22 @@ public class ModBlocks {
 
     private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties, boolean shouldRegisterItem) {
         ResourceKey<Block> blockKey = keyOfBlock(name);
-        Block block = blockFactory.apply(properties.setId(blockKey));
+
+        //? if >=1.21.2 {
+        /*Block block = blockFactory.apply(properties.setId(blockKey));
+        *///? } else {
+        Block block = blockFactory.apply(properties);
+        //? }
 
         if (shouldRegisterItem) {
             ResourceKey<Item> itemKey = keyOfItem(name);
 
-            BlockItem blockItem = new BlockItem(block, new Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
+            //? if >=1.21.2 {
+            /*BlockItem blockItem = new BlockItem(block, new Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
+            *///? } else {
+            BlockItem blockItem = new BlockItem(block, new Item.Properties());
+            //? }
+
             Registry.register(BuiltInRegistries.ITEM, itemKey, blockItem);
         }
 

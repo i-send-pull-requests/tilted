@@ -7,8 +7,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 //? if >=1.21.6 {
-import net.minecraft.world.item.component.TooltipDisplay;
-//? }
+/*import net.minecraft.world.item.component.TooltipDisplay;
+*///? }
 import org.agmas.ModAttachments;
 import org.agmas.ModComponents;
 import org.agmas.ModTags;
@@ -27,7 +27,7 @@ import java.util.function.Consumer;
 public abstract class AddToItemTooltipMixin {
 
     //? if >=1.21.6 {
-    @Inject(method = "appendHoverText", at = @At("HEAD"))
+    /*@Inject(method = "appendHoverText", at = @At("HEAD"))
     public void addText(ItemStack itemStack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag, CallbackInfo ci) {
         if (itemStack.is(ModTags.CROSSBOWS)) {
             if (itemStack.has(ModComponents.BARREL_COMPONENT)) {
@@ -42,8 +42,8 @@ public abstract class AddToItemTooltipMixin {
             }
         }
     }
-    //? } else {
-    /*@Inject(method = "appendHoverText", at = @At("HEAD"))
+    *///? } else {
+    @Inject(method = "appendHoverText", at = @At("HEAD"))
     public void addText(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag, CallbackInfo ci) {
         if (itemStack.is(ModTags.CROSSBOWS)) {
             if (itemStack.has(ModComponents.BARREL_COMPONENT)) {
@@ -58,6 +58,6 @@ public abstract class AddToItemTooltipMixin {
             }
         }
     }
-    *///? }
+    //? }
 
 }

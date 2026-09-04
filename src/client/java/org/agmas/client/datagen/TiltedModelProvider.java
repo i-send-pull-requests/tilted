@@ -1,14 +1,26 @@
 package org.agmas.client.datagen;
 
-import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
+//? if >=1.21.4 {
+/*import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
+*///? } else {
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+//? }
+
 //? if >=26.1 {
 /*import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 *///? } else {
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 //? }
-import net.minecraft.client.data.models.BlockModelGenerators;
+
+//? if >=1.21.4 {
+/*import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+*///? } else {
+import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.model.ModelTemplates;
+//? }
 import org.agmas.ModBlocks;
 import org.agmas.ModItems;
 import org.agmas.attachments.SkinsComponent;

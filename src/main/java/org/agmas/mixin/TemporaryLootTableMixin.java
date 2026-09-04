@@ -1,8 +1,8 @@
 package org.agmas.mixin;
 
 //? if >=26.3 {
-/*import net.fabricmc.loader.impl.util.log.Log;
-import net.fabricmc.loader.impl.util.log.LogCategory;
+/*import net.fabricmc.loader.impl.polyfill.log.Log;
+import net.fabricmc.loader.impl.polyfill.log.LogCategory;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import org.agmas.ModComponents;
 
 import java.awt.*;
-import java.util.function.Consumer;
+import java.polyfill.function.Consumer;
 *///? }
 import java.util.Random;
 import org.agmas.ModBlocks;
@@ -38,7 +38,7 @@ import java.util.function.Function;
 public abstract class TemporaryLootTableMixin {
 
     //? if >=26.3 {
-    /*@Inject(method = "getRandomItemsRaw(Lnet/minecraft/world/level/storage/loot/LootContext;Ljava/util/function/Consumer;)V", at = @At("HEAD"))
+    /*@Inject(method = "getRandomItemsRaw(Lnet/minecraft/world/level/storage/loot/LootContext;Ljava/polyfill/function/Consumer;)V", at = @At("HEAD"))
     public void addText(LootContext tableBuilder, Consumer<ItemStack> source, CallbackInfo ci) {
         if (new Random().nextInt(0, 500) <= 1) {
             source.accept(ModBlocks.CRATE.asItem().getDefaultInstance());

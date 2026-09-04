@@ -5,10 +5,10 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 //? if <1.21.11 {
-/*import net.minecraft.resources.ResourceLocation;
-*///? } else {
-import net.minecraft.resources.Identifier;
-//? }
+import net.minecraft.resources.ResourceLocation;
+//? } else {
+/*import net.minecraft.resources.Identifier;
+*///? }
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -27,10 +27,10 @@ public class ModMenuTypes {
     }
     *///? } else {
     //? if >=1.21.11 {
-    public static final MenuType<FletchingTableMenu> FLETCHING_TABLE = Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(Tilted.MOD_ID, "fletching_table"), new MenuType<>(FletchingTableMenu::new, FeatureFlagSet.of()));
-    //? } else {
-    /*public static final MenuType<FletchingTableMenu> FLETCHING_TABLE = Registry.register(BuiltInRegistries.MENU, ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "fletching_table"), new MenuType<>(FletchingTableMenu::new, FeatureFlagSet.of()));
-    *///? }
+    /*public static final MenuType<FletchingTableMenu> FLETCHING_TABLE = Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(Tilted.MOD_ID, "fletching_table"), new MenuType<>(FletchingTableMenu::new, FeatureFlagSet.of()));
+    *///? } else {
+    public static final MenuType<FletchingTableMenu> FLETCHING_TABLE = Registry.register(BuiltInRegistries.MENU, ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "fletching_table"), new MenuType<>(FletchingTableMenu::new, FeatureFlagSet.of()));
+    //? }
     //? }
 
     public static void init() {
