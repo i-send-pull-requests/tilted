@@ -7,6 +7,7 @@ import com.mojang.blaze3d.pipeline.RenderPipeline;
 //? } else {
 /*import com.mojang.renderpearl.api.pipeline.RenderPipeline;
 *///? }
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.Gui;
 //? if <26.1 {
@@ -45,10 +46,31 @@ import java.awt.*;
 /*@Mixin(value = Hud.class, priority = 20)
 *///? }
 public class GreenCrosshairMixin {
-	//? if >=1.21.6 {
+	//? if <1.21.2 {
+	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"), method = "renderCrosshair")
+	private void init(GuiGraphics instance, ResourceLocation location, int x, int y, int width, int height, Operation<Void> original) {
+		if (TiltedClient.scope && TiltedClient.adsTicks > 3) {
+			return;
+		}
 
-	/*//? if <26.1 {
-	//? if >=1.21.11 {
+		if (TiltedClient.crossbowFocusMode) {
+			if (TiltedClient.transCrosshair) {
+				if (!TiltedClient.pressingADS) {
+					instance.setColor(1.0f, 0.0f, 0.0f, (float) 25 / (float) 255);
+					original.call(instance, location, x, y, width, height);
+					instance.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+				}
+			} else {
+				instance.setColor(0.0f, 1.0f, 0.0f, 1.0f);
+				original.call(instance, location, x, y, width, height);
+				instance.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+			}
+		} else {
+			original.call(instance, location, x, y, width, height);
+		}
+	}
+	//? } else if <26.1 {
+	/*//? if >=1.21.11 {
 	/^@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0), method = "renderCrosshair")
 	private void init(GuiGraphics instance, RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height, Operation<Void> original) {
 	^///? } else {
@@ -70,8 +92,8 @@ public class GreenCrosshairMixin {
 		}
 
 	}
-	//? } else if <26.3 {
-	/^@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0), method = "extractCrosshair")
+	*///? } else if <26.3 {
+	/*@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0), method = "extractCrosshair")
 	private void init(GuiGraphicsExtractor instance, RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height, Operation<Void> original) {
 		if (TiltedClient.scope && TiltedClient.adsTicks > 3) {
 			return;
@@ -88,8 +110,8 @@ public class GreenCrosshairMixin {
 		}
 
 	}
-	^///? } else {
-	/^@WrapOperation(method = "extractCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/renderpearl/api/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0))
+	*///? } else {
+	/*@WrapOperation(method = "extractCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/renderpearl/api/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V", ordinal = 0))
 	private void init(GuiGraphicsExtractor instance, RenderPipeline renderPipeline, Identifier location, int x, int y, int width, int height, Operation<Void> original) {
 		if (TiltedClient.scope && TiltedClient.adsTicks > 3) {
 			return;
@@ -106,8 +128,6 @@ public class GreenCrosshairMixin {
 		}
 
 	}
-	^///? }
-
 	*///? }
 
 	//? if >=26.1 {
@@ -142,7 +162,13 @@ public class GreenCrosshairMixin {
 			graphics.fill(RenderPipelines.GUI, 0, top, left, bottom, Color.BLACK.getRGB());
 			graphics.fill(RenderPipelines.GUI, right, top, graphics.guiWidth(), bottom, Color.BLACK.getRGB());
 			*///? } else {
-			graphics.blit(Tilted.of("textures/misc/telescopic_scope.png"), left, top, 0.0F, 0.0F, width, height, width, height);
+			RenderSystem.enableBlend();
+			RenderSystem.defaultBlendFunc();
+
+			graphics.blit(Tilted.of("textures/misc/telescopic_scope.png"), left, top, 0.0f, 0.0f, width, height, width, height);
+
+			RenderSystem.disableBlend();
+
 			graphics.fill(0, bottom, graphics.guiWidth(), graphics.guiHeight(), Color.BLACK.getRGB());
 			graphics.fill(0, 0, graphics.guiWidth(), top, Color.BLACK.getRGB());
 			graphics.fill(0, top, left, bottom, Color.BLACK.getRGB());
