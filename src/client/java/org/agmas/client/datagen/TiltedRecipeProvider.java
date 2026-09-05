@@ -62,9 +62,9 @@ public class TiltedRecipeProvider extends FabricRecipeProvider {
     @Override
     public void buildRecipes(RecipeOutput exporter) {
     //? }
-        boolean mkdirRecipesMainSuccessful = new File(PATH_DIR_RECIPES).mkdirs();
+        boolean mkdirRecipesSuccessful = new File(PATH_DIR_RECIPES).mkdirs();
 
-        if (mkdirRecipesMainSuccessful) Tilted.LOGGER.info("successfully created recipe folder at <" + PATH_DIR_RECIPES + ">");
+        if (mkdirRecipesSuccessful) Tilted.LOGGER.info("successfully created recipe folder at <" + PATH_DIR_RECIPES + ">");
         else Tilted.LOGGER.error("cannot create recipe folder at <" + PATH_DIR_RECIPES + ">");
 
         writeCrossbowSmithingRecipes(SkinsComponent.                   ANCIENT, ModItems.                   ANCIENT_SMITHING_TEMPLATE, Items.        STRING);
