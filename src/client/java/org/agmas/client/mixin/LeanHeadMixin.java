@@ -9,9 +9,11 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.util.EasingType;
 import net.minecraft.world.entity.Avatar;
+import org.agmas.client.TiltedClient;
 *///? } else if >= 1.21.6 {
 /*import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.client.model.HumanoidModel;
+import org.agmas.client.TiltedClient;
 *///? } else {
 import net.minecraft.world.entity.LivingEntity;
 import org.agmas.client.duck.AvatarAccessor;
