@@ -1,4 +1,4 @@
-// 1.21.1	2026-09-04T23:04:36.7282328	Tilted/TiltedModelProvider
+// 1.21.1	2026-09-05T18:19:48.1623545	Tilted/TiltedModelProvider
 df206bd096dd126516b0612fd8fc5146926bba6d assets\tilted\models\item\nostalgia_smithing_template.json
 7934976810615093bac785e3f31686ea168f31c3 assets\tilted\models\item\training_smithing_template.json
 914814b9f9d66006aa3438b03376c9cbafba5af3 assets\tilted\models\item\godholms_smithing_template.json
@@ -20,8 +20,8 @@ c9ea05b72a52a7f4904488b085512945fac631b8 assets\tilted\models\item\carnivora_smi
 8d21ce22b28771d26bb2b62c9a89b9cc60828523 assets\tilted\models\item\shrimp_smithing_template.json
 f2fb503510e1a8010e1044acf37b494889f32f6c assets\tilted\models\item\roar_smithing_template.json
 e6095902611f654dbd152c6a12c1da94f279e9c0 assets\tilted\models\item\nroses_smithing_template.json
-797d121083dba91dc212be3cacafe0d0a8d23706 assets\tilted\models\item\writer_smithing_template.json
 32256f3e7bd4f190a8ac1558d9228b0e4021c1ac assets\tilted\models\item\totemic_smithing_template.json
+797d121083dba91dc212be3cacafe0d0a8d23706 assets\tilted\models\item\writer_smithing_template.json
 89f32874dd58c119e8514f9e219b6b9068035b04 assets\tilted\models\item\wrath_smithing_template.json
 ce82ad3761d23c739b80900f5890425d3565568a assets\tilted\models\item\goldeneye_smithing_template.json
 e83903e57ee0119be7d467d025af8cb51d16dc44 assets\tilted\models\item\friend_smithing_template.json
