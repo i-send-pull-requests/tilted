@@ -31,7 +31,7 @@ public class AttachmentTooltipComponent implements ClientTooltipComponent {
     *///? } else {
     @Override
     public int getHeight() {
-        return component.size()*12;
+        return component.size() * 12;
     }
     //? }
 
