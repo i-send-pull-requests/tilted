@@ -36,27 +36,38 @@ public class ChangeCrossbowSkinMixin {
 
 *///? } else {
 
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.ItemModelShaper;
-import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.client.resources.model.ModelManager;
+import org.jetbrains.annotations.Nullable;
+
+import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.minecraft.resources.ResourceLocation;
+
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+
+import net.minecraft.client.renderer.ItemModelShaper;
+import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.block.model.ItemOverride;
+
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.client.resources.model.ModelManager;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+
+import net.minecraft.client.multiplayer.ClientLevel;
+
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import org.agmas.Tilted;
 import org.agmas.ModComponents;
+
+import org.agmas.client.duck.ItemOverridesAccessor;
 
 @Mixin(value = ItemRenderer.class, priority = 1005)
 public class ChangeCrossbowSkinMixin {
@@ -69,12 +80,15 @@ public class ChangeCrossbowSkinMixin {
         if (!itemStack.has(ModComponents.SKIN_COMPONENT)) return;
         ModelManager modelManager = this.itemModelShaper.getModelManager();
 
-        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + ModComponents.skin(itemStack.get(ModComponents.SKIN_COMPONENT)).name().toLowerCase() + "/crossbow");
+        BakedModel modelOrig = modelManager.getModel(new ModelResourceLocation(BuiltInRegistries.ITEM.getKey(itemStack.getItem()), "inventory"));
 
-        Tilted.LOGGER.info(cir.getReturnValue().getOverrides().toString());
+        @Nullable ItemOverride override = ((ItemOverridesAccessor)modelOrig.getOverrides()).getOverride(itemStack, (ClientLevel)level, livingEntity, i);
+        String pathOverride = override == null ? "item/crossbow" : override.getModel().getPath();
 
-        BakedModel model = cir.getReturnValue().getOverrides().resolve(modelManager.getModel(location), itemStack, (ClientLevel)level, livingEntity, i);
-        if (model != modelManager.getMissingModel()) cir.setReturnValue(model);
+        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, pathOverride.substring(0, pathOverride.indexOf('/') + 1) + ModComponents.skin(itemStack.get(ModComponents.SKIN_COMPONENT)).name().toLowerCase() + pathOverride.substring(pathOverride.indexOf('/')));
+
+        BakedModel model = modelManager.getModel(location);
+        if (model != null && model != modelManager.getMissingModel()) cir.setReturnValue(model);
     }
 }
 

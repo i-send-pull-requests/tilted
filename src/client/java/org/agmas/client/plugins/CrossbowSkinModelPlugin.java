@@ -22,14 +22,6 @@ public class CrossbowSkinModelPlugin implements ModelLoadingPlugin {
             pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_pulling_0"));
             pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_pulling_1"));
             pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_pulling_2"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_amethyst"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_brimstone_0"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_brimstone_1"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_brimstone_2"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_brimstone_3"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_brimstone_4"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_brimstone_5"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_torch"));
         }
     }
 }
