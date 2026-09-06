@@ -6,12 +6,14 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.fabricmc.loader.impl.util.log.Log;
 import net.fabricmc.loader.impl.util.log.LogCategory;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.agmas.Tilted;
 import org.spongepowered.asm.mixin.Shadow;
 //? if >=1.21.2 {
 /*import net.minecraft.world.InteractionResult;
@@ -33,6 +35,11 @@ import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.awt.*;
+import java.util.List;
 
 @Mixin(value = CrossbowItem.class, priority = 3000)
 public abstract class LeaningArrowsMixin extends Item {
@@ -127,4 +134,22 @@ public abstract class LeaningArrowsMixin extends Item {
         }
         return (int) originalTime;
     }
+
+    //? if < 1.21.2 {
+    @Inject(method = "appendHoverText", at = @At("HEAD"))
+    public void addText(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> list, TooltipFlag tooltipFlag, CallbackInfo ci) {
+        if (itemStack.is(ModTags.CROSSBOWS)) {
+            if (itemStack.has(ModComponents.BARREL_COMPONENT)) {
+                list.add(Component.translatable("tilted.barrels." + ModComponents.barrel(itemStack.get(ModComponents.BARREL_COMPONENT)).name().toLowerCase()).withColor(Color.GRAY.getRGB()));
+            } else {
+                list.add(Component.translatable("tilted.barrels.none").withColor(Color.GRAY.getRGB()));
+            }
+            if (itemStack.has(ModComponents.SCOPE_COMPONENT)) {
+                list.add(Component.translatable("tilted.scopes." + ModComponents.scope(itemStack.get(ModComponents.SCOPE_COMPONENT)).name().toLowerCase()).withColor(Color.GRAY.getRGB()));
+            } else {
+                list.add(Component.translatable("tilted.scopes.iron_sights").withColor(Color.GRAY.getRGB()));
+            }
+        }
+    }
+    //? }
 }
