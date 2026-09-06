@@ -8,6 +8,10 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
  *///? } else {
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 //? }
+//? if < 1.21.4 {
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+import org.agmas.client.plugins.CrossbowSkinModelPlugin;
+//? }
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 //? if >=1.21.6 {
 /*import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
@@ -54,6 +58,10 @@ public class TiltedClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		bootstrapKeys();
 		bootstrapEvents();
+
+		//? if < 1.21.4 {
+		ModelLoadingPlugin.register(new CrossbowSkinModelPlugin());
+		//? }
 
 		MenuScreens.register(ModMenuTypes.FLETCHING_TABLE, FletchingTableScreen::new);
 	}
