@@ -79,6 +79,7 @@ public class Tilted implements ModInitializer {
 		ModBlocks.init();
 		ModTags.init();
 
+		// damm why tho
 		LOGGER.info("I HATE https://modrinth.com/user/Elysieon!!! IF YOU SEE THIS MESSAGE MAKE SURE TO SEND MALICE AND DESPAIR TO https://www.youtube.com/@Elysieon!!! And you too powercyphe");
 
 		//? if >=26.1 {
