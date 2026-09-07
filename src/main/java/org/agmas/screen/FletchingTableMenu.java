@@ -4,7 +4,7 @@ import net.fabricmc.loader.impl.util.log.Log;
 import net.fabricmc.loader.impl.util.log.LogCategory;
 import net.minecraft.core.component.DataComponentType;
 //? if >=26.3 {
-/*import net.minecraft.polyfill.Prediction;
+/*import net.minecraft.util.Prediction;
 *///? }
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;

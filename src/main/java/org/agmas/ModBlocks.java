@@ -1,6 +1,11 @@
 package org.agmas;
 
+//? if >=26.1 {
+/*import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+*///? } else {
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+//? }
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

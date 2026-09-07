@@ -1,8 +1,8 @@
 package org.agmas.mixin;
 
 //? if >=26.3 {
-/*import net.fabricmc.loader.impl.polyfill.log.Log;
-import net.fabricmc.loader.impl.polyfill.log.LogCategory;
+/*import net.fabricmc.loader.impl.util.log.Log;
+import net.fabricmc.loader.impl.util.log.LogCategory;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import org.agmas.ModComponents;
 
 import java.awt.*;
-import java.polyfill.function.Consumer;
+import java.util.function.Consumer;
 *///? }
 import java.util.Random;
 import org.agmas.ModBlocks;

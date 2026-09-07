@@ -2,9 +2,9 @@ package org.agmas.client.mixin;
 
 //? if >= 1.21.6 {
 
-/*
 
-//? if >=1.21.11 {
+
+/*//? if >=1.21.11 {
 
 /^import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;

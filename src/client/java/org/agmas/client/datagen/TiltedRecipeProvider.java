@@ -6,6 +6,10 @@ import java.io.IOException;
 
 import java.util.concurrent.CompletableFuture;
 
+import net.minecraft.advancements.Advancement;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.item.crafting.Recipe;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.core.HolderLookup;
@@ -51,8 +55,21 @@ public class TiltedRecipeProvider extends FabricRecipeProvider {
     }
 
     //? if >=1.21.2 {
-    /*public RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
+
+     /*@Override
+
+    //? if >=26.3 {
+
+    /^public RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+        return new RecipeProvider(recipes, advancements) {
+
+    ^///? } else {
+
+    public RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
         return new RecipeProvider(registryLookup, exporter) {
+
+    //? }
+
     *///? }
 
     //? if >=1.21.2 {
@@ -72,8 +89,6 @@ public class TiltedRecipeProvider extends FabricRecipeProvider {
         writeCrossbowSmithingRecipes(SkinsComponent.                  AQUARIUS, ModItems.                  AQUARIUS_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                  ARMOURED, ModItems.                  ARMOURED_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                  AWAKENED, ModItems.                  AWAKENED_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.                  BLACKICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.     BLACK_DYE);
-        writeCrossbowSmithingRecipes(SkinsComponent.                   BLUEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      BLUE_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                  BUSINESS, ModItems.                  BUSINESS_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                 CARNIVORA, ModItems.                 CARNIVORA_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                   CARRION, ModItems.                   CARRION_SMITHING_TEMPLATE, Items.        STRING);
@@ -82,28 +97,22 @@ public class TiltedRecipeProvider extends FabricRecipeProvider {
         writeCrossbowSmithingRecipes(SkinsComponent.                      CHUD, ModItems.                      CHUD_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                 CLOCKWORK, ModItems.                 CLOCKWORK_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.               COTTONCANDY, ModItems.               COTTONCANDY_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.                   CYANICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      CYAN_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                   DARKSUN, ModItems.                   DARKSUN_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                    FLAMBE, ModItems.                    FLAMBE_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                    FLOWER, ModItems.                    FLOWER_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                    FRIEND, ModItems.                    FRIEND_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                  GODHOLMS, ModItems.                  GODHOLMS_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                 GOLDENEYE, ModItems.                 GOLDENEYE_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.                  GREENICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.     GREEN_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                       GUI, ModItems.                       GUI_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                    HAMMER, ModItems.                    HAMMER_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.               HEARTSTRING, ModItems.               HEARTSTRING_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                   HISTORY, ModItems.                   HISTORY_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                   HOLIDAY, ModItems.                   HOLIDAY_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                HYPERDEATH, ModItems.                HYPERDEATH_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.                       ICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.     WHITE_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                  INVERTED, ModItems.                  INVERTED_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                  JUNKYARD, ModItems.                  JUNKYARD_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                     KEBAB, ModItems.                     KEBAB_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.LEGALLY_DISTINCT_BRIMSTONE, ModItems.LEGALLY_DISTINCT_BRIMSTONE_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.              LIGHTBLUEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.LIGHT_BLUE_DYE);
-        writeCrossbowSmithingRecipes(SkinsComponent.                   LIMEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      LIME_DYE);
-        writeCrossbowSmithingRecipes(SkinsComponent.                MAGENTAICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.   MAGENTA_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                   MALWARE, ModItems.                   MALWARE_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                     MINED, ModItems.                     MINED_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.           MISSING_TEXTURE, ModItems.           MISSING_TEXTURE_SMITHING_TEMPLATE, Items.        STRING);
@@ -111,12 +120,8 @@ public class TiltedRecipeProvider extends FabricRecipeProvider {
         writeCrossbowSmithingRecipes(SkinsComponent.                  NAUTICAL, ModItems.                  NAUTICAL_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                 NOSTALGIA, ModItems.                 NOSTALGIA_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                    NROSES, ModItems.                    NROSES_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.                 ORANGEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.    ORANGE_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                      PALE, ModItems.                      PALE_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.                   PINKICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      PINK_DYE);
-        writeCrossbowSmithingRecipes(SkinsComponent.                 PURPLEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.    PURPLE_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                       PVP, ModItems.                       PVP_SMITHING_TEMPLATE, Items.        STRING);
-        writeCrossbowSmithingRecipes(SkinsComponent.                    REDICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.       RED_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                  REVENANT, ModItems.                  REVENANT_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                    RIPPER, ModItems.                    RIPPER_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                      ROAR, ModItems.                      ROAR_SMITHING_TEMPLATE, Items.        STRING);
@@ -141,7 +146,40 @@ public class TiltedRecipeProvider extends FabricRecipeProvider {
         writeCrossbowSmithingRecipes(SkinsComponent.                 WILLPOWER, ModItems.                 WILLPOWER_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                     WRATH, ModItems.                     WRATH_SMITHING_TEMPLATE, Items.        STRING);
         writeCrossbowSmithingRecipes(SkinsComponent.                    WRITER, ModItems.                    WRITER_SMITHING_TEMPLATE, Items.        STRING);
+
+        //? if >= 26.3 {
+
+        /*writeCrossbowSmithingRecipes(SkinsComponent.                  BLACKICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.    black());
+        writeCrossbowSmithingRecipes(SkinsComponent.                   BLUEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.     blue());
+        writeCrossbowSmithingRecipes(SkinsComponent.                   CYANICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.     cyan());
+        writeCrossbowSmithingRecipes(SkinsComponent.                  GREENICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.    green());
+        writeCrossbowSmithingRecipes(SkinsComponent.              LIGHTBLUEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.lightBlue());
+        writeCrossbowSmithingRecipes(SkinsComponent.                   LIMEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.     lime());
+        writeCrossbowSmithingRecipes(SkinsComponent.                MAGENTAICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.  magenta());
+        writeCrossbowSmithingRecipes(SkinsComponent.                 ORANGEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.   orange());
+        writeCrossbowSmithingRecipes(SkinsComponent.                   PINKICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.     pink());
+        writeCrossbowSmithingRecipes(SkinsComponent.                 PURPLEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.   purple());
+        writeCrossbowSmithingRecipes(SkinsComponent.                    REDICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.      red());
+        writeCrossbowSmithingRecipes(SkinsComponent.                       ICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.    white());
+        writeCrossbowSmithingRecipes(SkinsComponent.                 YELLOWICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.DYE.   yellow());
+
+        *///? } else {
+
+        writeCrossbowSmithingRecipes(SkinsComponent.                  BLACKICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.     BLACK_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                   BLUEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      BLUE_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                   CYANICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      CYAN_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                  GREENICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.     GREEN_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.              LIGHTBLUEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.LIGHT_BLUE_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                   LIMEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      LIME_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                MAGENTAICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.   MAGENTA_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                 ORANGEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.    ORANGE_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                   PINKICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.      PINK_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                 PURPLEICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.    PURPLE_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                    REDICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.       RED_DYE);
+        writeCrossbowSmithingRecipes(SkinsComponent.                       ICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.     WHITE_DYE);
         writeCrossbowSmithingRecipes(SkinsComponent.                 YELLOWICE, ModItems.                       ICE_SMITHING_TEMPLATE, Items.    YELLOW_DYE);
+
+        //? }
     }
 
     private void writeCrossbowSmithingRecipes(SkinsComponent skin, Item template, Item addition) {
