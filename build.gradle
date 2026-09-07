@@ -72,7 +72,7 @@ processResources {
 	}
 }
 
-tasks.withType(JavaCompile).configureEach { it.options.release = { def prop = findProperty("java_version"); return prop == null ? 21 : prop.toInteger() }() }
+def version = findProperty("java_version") as Integer ?: 21
 
 java {
 	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
@@ -80,9 +80,13 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = { def prop = findProperty("java_version"); return prop == null ? JavaVersion.VERSION_21 : JavaVersion.toVersion(prop.toInteger()) }()
-	targetCompatibility = { def prop = findProperty("java_version"); return prop == null ? JavaVersion.VERSION_21 : JavaVersion.toVersion(prop.toInteger()) }()
+	toolchain { languageVersion = JavaLanguageVersion.of(version) }
+
+	sourceCompatibility = JavaVersion.toVersion(version)
+	targetCompatibility = JavaVersion.toVersion(version)
 }
+
+tasks.withType(JavaCompile).configureEach { options.release = version }
 
 jar {
 	def projectName = project.name
