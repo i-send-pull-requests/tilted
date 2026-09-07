@@ -110,7 +110,6 @@ public abstract class LeanHeadMixin {
 			float delta = Mth.clamp((ageInTicks - ((AvatarAccessor)entity).getStartedLeaningAge()) / 2.0f, 0.0f, 1.0f);
 
 			float progress = PF_Mth.easeInOutSine(delta);
-			Tilted.LOGGER.info(String.valueOf(progress));
 
 			head.x    = Mth.lerp(progress, 0.0f, lean * 2.5f );
 			head.zRot = Mth.lerp(progress, 0.0f, lean * 0.25f);
