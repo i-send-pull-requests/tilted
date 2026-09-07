@@ -1,6 +1,7 @@
 package org.agmas.client.plugins;
 
 //? if < 1.21.4 {
+
 import net.minecraft.resources.ResourceLocation;
 
 import net.fabricmc.api.EnvType;
@@ -13,15 +14,35 @@ import org.agmas.attachments.SkinsComponent;
 
 @Environment(EnvType.CLIENT)
 public class CrossbowSkinModelPlugin implements ModelLoadingPlugin {
+    private static final String[] ID_CROSSBOW_VANILLA = {
+        "crossbow",
+
+        "crossbow_pulling_0",
+        "crossbow_pulling_1",
+        "crossbow_pulling_2",
+
+        "crossbow_arrow",
+        "crossbow_firework"
+    };
+
+    private static final String[] ID_CROSSBOW_ENCHANCEMENT = {
+        "crossbow_amethyst",
+
+        "crossbow_brimstone_0",
+        "crossbow_brimstone_1",
+        "crossbow_brimstone_2",
+        "crossbow_brimstone_3",
+        "crossbow_brimstone_4",
+        "crossbow_brimstone_5",
+
+        "crossbow_torch",
+    };
+
     @Override
-    public void onInitializeModelLoader(Context pluginContext) {
+    public void onInitializeModelLoader(Context context) {
         for (SkinsComponent skin : SkinsComponent.values()) {
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_arrow"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_firework"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_pulling_0"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_pulling_1"));
-            pluginContext.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/crossbow_pulling_2"));
+            for (String id : ID_CROSSBOW_VANILLA     ) context.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/" + id));
+            for (String id : ID_CROSSBOW_ENCHANCEMENT) context.addModels(ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, "item/" + skin.name().toLowerCase() + "/" + id));
         }
     }
 }
