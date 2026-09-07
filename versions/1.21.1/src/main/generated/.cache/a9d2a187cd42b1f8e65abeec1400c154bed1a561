@@ -1,4 +1,4 @@
-// 1.21.1	2026-09-07T14:20:28.3800127	Tilted/TiltedModelProvider
+// 1.21.1	2026-09-07T15:07:55.8243187	Tilted/TiltedModelProvider
 df206bd096dd126516b0612fd8fc5146926bba6d assets\tilted\models\item\nostalgia_smithing_template.json
 7934976810615093bac785e3f31686ea168f31c3 assets\tilted\models\item\training_smithing_template.json
 914814b9f9d66006aa3438b03376c9cbafba5af3 assets\tilted\models\item\godholms_smithing_template.json
@@ -46,8 +46,8 @@ f4792d997b94484f0527c1bfb706a3b170a54e6b assets\tilted\models\item\heartstring_s
 4a52e99459b0631fb75fc106804f261e1fbff666 assets\tilted\models\item\crate.json
 88c134e4aea21a4a15432cafe6fc9eeb62b19a93 assets\tilted\models\item\darksun_smithing_template.json
 83e33b2f98b76b0af1a601b5ff7c05ea4eb096a7 assets\tilted\models\item\stopwatch_smithing_template.json
-90fb23545b0a5e9f6059d2223e9d7af786e7f816 assets\tilted\models\item\kebab_smithing_template.json
 ba70d3c5ffc383aec642fa3846d24135da9ab05b assets\tilted\models\item\sentinal_smithing_template.json
+90fb23545b0a5e9f6059d2223e9d7af786e7f816 assets\tilted\models\item\kebab_smithing_template.json
 9e87b476898bd640ecc1e6ddfb3f47282ac4f1b9 assets\tilted\models\item\cottoncandy_smithing_template.json
 575e99580ebe1b94645ed58d47afdf7ea25a00c5 assets\tilted\models\item\warlock_smithing_template.json
 8ba7d66831507b0017238cb0e16ecd1506a27592 assets\tilted\models\item\ice_smithing_template.json

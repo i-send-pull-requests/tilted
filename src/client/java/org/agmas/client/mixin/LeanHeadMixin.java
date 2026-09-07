@@ -16,6 +16,7 @@ import net.minecraft.client.model.HumanoidModel;
 import org.agmas.client.TiltedClient;
 *///? } else {
 import net.minecraft.world.entity.LivingEntity;
+import org.agmas.Tilted;
 import org.agmas.client.duck.AvatarAccessor;
 import org.agmas.client.polyfill.PF_Mth;
 //? }
@@ -35,11 +36,15 @@ public abstract class LeanHeadMixin {
 	@Final
 	public ModelPart head;
 
+	//? if < 1.21.6 {
+
 	@Unique
 	private int tilted$leanPrev = 0;
 
 	@Unique
 	private float tilted$ageInTicksUnleanStart = 0;
+
+	//? }
 
 	//? if >=1.21.11 {
 	/*@Inject(method = "setupAnim(Lnet/minecraft/client/renderer/entity/state/HumanoidRenderState;)V",at = @At("TAIL"))
@@ -105,6 +110,7 @@ public abstract class LeanHeadMixin {
 			float delta = Mth.clamp((ageInTicks - ((AvatarAccessor)entity).getStartedLeaningAge()) / 2.0f, 0.0f, 1.0f);
 
 			float progress = PF_Mth.easeInOutSine(delta);
+			Tilted.LOGGER.info(String.valueOf(progress));
 
 			head.x    = Mth.lerp(progress, 0.0f, lean * 2.5f );
 			head.zRot = Mth.lerp(progress, 0.0f, lean * 0.25f);
