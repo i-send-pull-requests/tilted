@@ -9,13 +9,13 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 //? }
 //? if < 1.21.4 {
-import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+/*import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import org.agmas.client.plugins.CrossbowSkinModelPlugin;
-//? }
+*///? }
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 //? if >=1.21.6 {
-/*import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
-*///? }
+import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
+//? }
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -46,9 +46,9 @@ public class TiltedClient implements ClientModInitializer {
 	public static boolean transCrosshair = false;
 	public static float adsZoom = 1;
 	//? if >=1.21.6 {
-	/*public static RenderStateDataKey<Integer> leaningStateDataKey = RenderStateDataKey.create(()->"leaning");
+	public static RenderStateDataKey<Integer> leaningStateDataKey = RenderStateDataKey.create(()->"leaning");
 	public static RenderStateDataKey<Float> leaningAgeStateDataKey = RenderStateDataKey.create(()->"leaningAge");
-	*///? }
+	//? }
 	public static Vec3 previousLeanCamPos = null;
 	public static KeyMapping leanLeft;
 	public static KeyMapping leanRight;
@@ -60,8 +60,8 @@ public class TiltedClient implements ClientModInitializer {
 		bootstrapEvents();
 
 		//? if < 1.21.4 {
-		ModelLoadingPlugin.register(new CrossbowSkinModelPlugin());
-		//? }
+		/*ModelLoadingPlugin.register(new CrossbowSkinModelPlugin());
+		*///? }
 
 		MenuScreens.register(ModMenuTypes.FLETCHING_TABLE, FletchingTableScreen::new);
 	}
@@ -76,12 +76,12 @@ public class TiltedClient implements ClientModInitializer {
 
 	public static void bootstrapKeys() {
 		//? if >=1.21.9 {
-		/*KeyMapping.Category CATEGORY = KeyMapping.Category.register(
+		KeyMapping.Category CATEGORY = KeyMapping.Category.register(
 				Tilted.of("tilted")
 		);
-		*///? } else {
-		String CATEGORY = "key.categories.tilted";
-		//? }
+		//? } else {
+		/*String CATEGORY = "key.categories.tilted";
+		*///? }
 		enableCrossbowFocusMode = registerKeyMapping(
 				new KeyMapping(
 						"key.tilted.crossbowFocusMode", // The translation key for the key mapping.

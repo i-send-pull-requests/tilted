@@ -169,10 +169,10 @@ public class ModItems {
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Tilted.of(name));
 
         //? if >=1.21.2 {
-        /*T item = itemFactory.apply(settings.setId(itemKey));
-        *///? } else {
-        T item = itemFactory.apply(settings);
-        //? }
+        T item = itemFactory.apply(settings.setId(itemKey));
+        //? } else {
+        /*T item = itemFactory.apply(settings);
+        *///? }
 
         Registry.register(BuiltInRegistries.ITEM, itemKey, item);
 

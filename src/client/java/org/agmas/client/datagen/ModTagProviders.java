@@ -45,11 +45,11 @@ public class ModTagProviders {
             /*tag(tag)
                     .add(ResourceKey.create(Registries.ITEM, BuiltInRegistries.ITEM.getKey(item)));
             *///? } else if <1.21.2 {
-            tag(tag).add(ResourceKey.create(Registries.ITEM, BuiltInRegistries.ITEM.getKey(item)));
-            //? } else {
-            /*valueLookupBuilder(tag)
+            /*tag(tag).add(ResourceKey.create(Registries.ITEM, BuiltInRegistries.ITEM.getKey(item)));
+            *///? } else {
+            valueLookupBuilder(tag)
                     .add(item);
-             *///? }
+             //? }
         }
 
     }
