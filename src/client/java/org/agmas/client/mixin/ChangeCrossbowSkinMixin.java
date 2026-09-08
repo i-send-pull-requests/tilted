@@ -38,8 +38,6 @@ public class ChangeCrossbowSkinMixin {
 
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-
 import net.minecraft.resources.ResourceLocation;
 
 import net.minecraft.world.entity.LivingEntity;
@@ -47,8 +45,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import net.minecraft.client.renderer.ItemModelShaper;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.block.model.ItemOverride;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelManager;
@@ -58,10 +56,11 @@ import net.minecraft.client.multiplayer.ClientLevel;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-
 import org.spongepowered.asm.mixin.Shadow;
+
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import org.agmas.Tilted;
@@ -78,17 +77,19 @@ public class ChangeCrossbowSkinMixin {
     @Inject(method = "getModel", at = @At("RETURN"), cancellable = true)
     private void tilted$changeCrossbowSkin(ItemStack itemStack, Level level, LivingEntity livingEntity, int i, CallbackInfoReturnable<BakedModel> cir) {
         if (!itemStack.has(ModComponents.SKIN_COMPONENT)) return;
-        ModelManager modelManager = this.itemModelShaper.getModelManager();
 
-        BakedModel modelOrig = modelManager.getModel(new ModelResourceLocation(BuiltInRegistries.ITEM.getKey(itemStack.getItem()), "inventory"));
+        BakedModel model = itemModelShaper.getItemModel(itemStack);
 
-        @Nullable ItemOverride override = ((ItemOverridesAccessor)modelOrig.getOverrides()).getOverride(itemStack, (ClientLevel)level, livingEntity, i);
+        @Nullable ItemOverride override = ((ItemOverridesAccessor) model.getOverrides()).getOverride(itemStack, (ClientLevel)level, livingEntity, i);
         String pathOverride = override == null ? "item/crossbow" : override.getModel().getPath();
 
         ResourceLocation location = ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, pathOverride.substring(0, pathOverride.indexOf('/') + 1) + ModComponents.skin(itemStack.get(ModComponents.SKIN_COMPONENT)).name().toLowerCase() + pathOverride.substring(pathOverride.indexOf('/')));
+        Tilted.LOGGER.info(location.toString());
 
-        BakedModel model = modelManager.getModel(location);
-        if (model != null && model != modelManager.getMissingModel()) cir.setReturnValue(model);
+        ModelManager modelManager = this.itemModelShaper.getModelManager();
+
+        BakedModel modelNext = modelManager.getModel(location);
+        if (modelNext != null && modelNext != modelManager.getMissingModel()) cir.setReturnValue(modelNext);
     }
 }
 
