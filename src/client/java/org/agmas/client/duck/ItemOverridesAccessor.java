@@ -14,6 +14,6 @@ import net.minecraft.world.item.ItemStack;
 
 public interface ItemOverridesAccessor {
     //? if < 1.21.4 {
-    public @Nullable ItemOverride getOverride(ItemStack itemStack, ClientLevel level, LivingEntity entity, int i);
+    public @Nullable ItemOverride tilted$getOverride(ItemStack itemStack, ClientLevel level, LivingEntity entity, int i);
     //? }
 }

@@ -50,7 +50,6 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelManager;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 
@@ -80,7 +79,7 @@ public class ChangeCrossbowSkinMixin {
 
         BakedModel model = itemModelShaper.getItemModel(itemStack);
 
-        @Nullable ItemOverride override = ((ItemOverridesAccessor) model.getOverrides()).getOverride(itemStack, (ClientLevel)level, livingEntity, i);
+        @Nullable ItemOverride override = ((ItemOverridesAccessor)model.getOverrides()).tilted$getOverride(itemStack, (ClientLevel)level, livingEntity, i);
         String pathOverride = override == null ? "item/crossbow" : override.getModel().getPath();
 
         ResourceLocation location = ResourceLocation.fromNamespaceAndPath(Tilted.MOD_ID, pathOverride.substring(0, pathOverride.indexOf('/') + 1) + ModComponents.skin(itemStack.get(ModComponents.SKIN_COMPONENT)).name().toLowerCase() + pathOverride.substring(pathOverride.indexOf('/')));

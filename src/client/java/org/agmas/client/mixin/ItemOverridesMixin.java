@@ -1,6 +1,8 @@
 package org.agmas.client.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
+
+import org.agmas.Tilted;
 import org.agmas.client.duck.ItemOverridesAccessor;
 
 //? if < 1.21.4 {
@@ -45,15 +47,16 @@ public class ItemOverridesMixin implements ItemOverridesAccessor {
     @Unique
     private List<ItemOverride> overrides;
 
-    @Inject(method = "<init>(Lnet/minecraft/client/resources/model/ModelBaker;Lnet/minecraft/client/renderer/block/model/BlockModel;Ljava/util/List;)V", at = @At("TAIL"))
-    private void tilted$capture(ModelBaker baker, BlockModel model, List<ItemOverride> overrides, CallbackInfo ci) {
-        this.overrides = overrides;
+    @Inject(method = "<init>(Lnet/minecraft/client/resources/model/ModelBaker;Lnet/minecraft/client/renderer/block/model/BlockModel;Ljava/util/List;)V", at = @At("RETURN"))
+    private void tilted$retrieveOverrides(ModelBaker modelBaker, BlockModel blockModel, List<ItemOverride> list, CallbackInfo ci) {
+        overrides = list;
     }
 
     @Unique
-    public @Nullable ItemOverride getOverride(ItemStack itemStack, ClientLevel level, LivingEntity entity, int i) {
+    public @Nullable ItemOverride tilted$getOverride(ItemStack itemStack, ClientLevel level, LivingEntity entity, int i) {
+        if (overrides == null) return null;
+
         @Nullable ItemOverride overrideMatched = null;
-        if (overrides == null) return overrideMatched;
 
         loopOverrides: for (ItemOverride override : overrides) {
             for (ItemOverride.Predicate predicate : override.getPredicates().toList()) {
